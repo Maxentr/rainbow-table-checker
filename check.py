@@ -3,7 +3,7 @@ import csv
 from src.db_service import *
 
 if len(sys.argv) < 2:
-    print("Usage: python3 insert.py <path to CSV file> <column number of hash = 0>")
+    print("Usage: python3 check.py <path to CSV file> <column number of hash = 0>")
     sys.exit(1)
 
 path = sys.argv[1]
