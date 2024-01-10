@@ -30,11 +30,11 @@ You can either check passwords or save passwords in the rainbow table.
 ### Insert password in the database
 
 ```
-python3 insert.py <path to CSV file>
+python3 insert.py <path to CSV file> <column number of password = 0>
 ```
 
 ### Check a hash
 
 ```
-python3 check.py <path to CSV file>
+python3 check.py <path to CSV file> <column number of password = 0>
 ```
