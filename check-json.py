@@ -1,7 +1,6 @@
 import sys
 import json
 from src.db_service import *
-import io
 
 if len(sys.argv) < 1:
     print("Usage: python3 check-json.py <path to json file> <object key name of hash = 'password'>")
@@ -38,6 +37,6 @@ with open(path, 'r') as rainbow_table:
         # write to json file
         with open(filename +'-result.json', 'w', encoding='utf8') as result_file:
             str_ = json.dumps(result_json,
-                      indent=4, sort_keys=True,
+                      indent=2, sort_keys=True,
                       separators=(',', ': '), ensure_ascii=False)
             result_file.write(str_)
