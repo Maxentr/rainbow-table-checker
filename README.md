@@ -33,8 +33,10 @@ You can either check passwords or save passwords in the rainbow table.
 python3 insert.py <path to CSV file> <column number of password = 0>
 ```
 
-### Check a hash
+### Check a password from its hash
 
 ```
-python3 check.py <path to CSV file> <column number of password = 0>
+python3 check.py <path to CSV file> <column number of hash = 0>
 ```
+This will print the hash and password if it is found in the rainbow table and add it to `filename-result.csv` at the end of the row.
+

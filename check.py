@@ -3,7 +3,7 @@ import csv
 from src.db_service import *
 
 if len(sys.argv) < 2:
-    print("Usage: python3 insert.py <path to CSV file> <column number of password = 0>")
+    print("Usage: python3 insert.py <path to CSV file> <column number of hash = 0>")
     sys.exit(1)
 
 path = sys.argv[1]
@@ -22,17 +22,17 @@ with open(path, 'r') as rainbow_table:
 
     with open(filename +'-result.csv', 'w') as rainbow_table:
         writer = csv.writer(rainbow_table)
-        writer.writerow(['password', 'md5', 'sha1', 'sha256'])
 
-        # check if password is in the database
         for row in reader:
-            result = get_password_hashes(row[column])
+            hash = row[column]
+            result = get_password_from_hash(hash)
 
             if (result is None):
-                print("Password: " + result[1] + " not found in the database")
+                print("Hash: " + hash + " not found in the database")
             else:
-                print("Password: " + result[1] + " found in the database, " + "MD5: " + result[2] + ", SHA1: " + result[3] + ", SHA256: " + result[4])
+                print("Hash: " + hash + " found in the database, password: " + result[1])
 
                 # write to csv file
-                writer.writerow([result[1], result[2], result[3], result[4]])
+                row.append(result[1])
+                writer.writerow(row)
         rainbow_table.close()
